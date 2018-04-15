@@ -1,0 +1,152 @@
+body {
+/*  background: #802000 url('../images/bgGradient.png');*/ /*the pathname to the
+image should be relative to the location of the .css file*/
+/* #802000- backup color in the event the image fails to download*/
+  background-color: #A52A2A;
+  background-repeat: repeat-x;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+#content h3 {
+  font-size: 1.2em;
+  color: #ffffff;
+  text-align: center;
+  /*border: 2px solid #ffffff;*/
+}
+#content h2 {
+  color: #ffffff;
+  text-align: center;
+  /*border: 2px solid #ffffff;*/
+}
+#content p {
+  color: #ffffff;
+  /*border: 2px solid #ffffff;*/
+}
+
+#categoryPane {
+  background-color: #ffffff;/*#FFFACD;*/
+  background-repeat: no-repeat;
+  height: 622px;
+  margin: 0 auto;
+  position: relative;
+  width: 865px;
+}
+
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  /*width: 419px;*/
+}
+
+#navigation {
+  position: absolute;
+  top: 250px;
+  left: 30px;
+  width: 155px;
+}
+
+#navigation a {
+  display: block;
+  float: left;
+  height: 0;
+  margin: 0 0 10px 0;
+  overflow: hidden;
+  padding: 100px 0 0 0;
+  width: 155px;
+  z-index: 200;
+}
+
+/* default and active images */
+#navigation a#Bn {
+  background: url('../images/navigation/B.jpg') no-repeat;
+}
+#navigation a#Bn.active {
+  background: url('../images/navigation/Bactive.jpg') no-repeat;
+}
+#navigation a#Cn {
+  background: url('../images/navigation/C.jpg') no-repeat;
+}
+#navigation a#Cn.active {
+  background: url('../images/navigation/Cactive.jpg') no-repeat;
+}
+#navigation a#CEn {
+  background: url('../images/navigation/CE.jpg') no-repeat;
+}
+#navigation a#CEn.active {
+  background: url('../images/navigation/CEactive.jpg') no-repeat;
+}
+
+#tabs {
+  position: absolute;
+  top: 140px;
+  left: 210px;
+  width: 650px;
+  height: 50px;
+}
+
+#tabs a {
+  display: block;
+  float: left;
+  height: 0;
+  overflow: hidden;
+  padding: 140px 0 0 0; /* utice na visinu tabova*/
+  width: 160px;
+  z-index: 200;
+}
+
+/* active and inactive tabs */
+#tabs a#welcome.active {
+  background: url('../images/tabs/welcomeActive.png') no-repeat;
+}
+#tabs a#welcome.inactive{
+  background: url('../images/tabs/welcome.png') no-repeat;
+}
+#tabs a#B.active {
+  background: url('../images/tabs/Bactive.png') no-repeat;
+}
+#tabs a#B.inactive {
+  background: url('../images/tabs/B.png') no-repeat;
+}
+#tabs a#C.active {
+  background: url('../images/tabs/Cactive.png') no-repeat;
+}
+#tabs a#C.inactive {
+  background: url('../images/tabs/C.png') no-repeat;
+}
+#tabs a#CE.active {
+  background: url('../images/tabs/CEactive.png') no-repeat;
+}
+#tabs a#CE.inactive {
+  background: url('../images/tabs/CE.png') no-repeat;
+}
+
+
+#content {
+  position: absolute;
+  /* text-align: center;*/
+  background-color: #000000; /* text(h2, p) color inside content is #ffffff */
+
+  top: 250px;
+  left: 198px;
+  width: 615px;
+  height: 340px;
+  padding: 10px;
+}
+/*
+table {
+  border: 6px solid #1f394d;
+  border-collapse: collapse;
+  padding: 0 0 20px 0;
+  width: 95%;
+}
+
+td, th {
+  border: 6px solid #1f394d;
+  padding: 6px;
+}
+
+form {
+  margin: 20px;
+}*/

@@ -1,0 +1,8 @@
+*.tmp
+
+# Word
+*.doc*
+
+# Word temporary
+~$*.doc*
+
