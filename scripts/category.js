@@ -6,6 +6,9 @@ window.onload = initPage;
 
 /* Keep behaviour and content separate. We don't want things like
 onclick = "showTab()". Event handlers are assigned programatically.*/
+/* Multiple event handlers:
+addEventListener() lets us assign more than one event handler to an event.*/
+
 function initPage() {
   var tabs = document.getElementById("tabs")
                       .getElementsByTagName("a");
@@ -16,27 +19,29 @@ function initPage() {
     currentTab.onclick = showTab;
   }
 
+/* For the event mouseover handlers are : showHint, buttonOver */
+/* For the event mouseout handlers are : hideHint, buttonOut */
   var buttons =
     document.getElementById("navigation").getElementsByTagName("a");
     for (var i = 0; i<buttons.length; i++) {
       var currentBtn = buttons[i];
-      currentBtn.onmouseover = showHint;
-      currentBtn.onmouseout = hideHint;
+      currentBtn.addEventListener("mouseover", showHint, false);
+      currentBtn.addEventListener("mouseout", hideHint, false);
       currentBtn.onclick = showTab;
-      currentBtn.onmouseover = buttonOver;
-      currentBtn.onmouseout = buttonOut;
+      currentBtn.addEventListener("mouseover", buttonOver, false);            
+      currentBtn.addEventListener("mouseout", buttonOut, false);
     }
 }
 
 /* Show hints only in cases when welcome tab is selected. If a category is
 selected no hints should appear. In that case, HTML fragement returned
 from the ajax request will be shown. */
-function showHint() {
+function showHint(e) {
   console.log("in showHint()");
   if (!welcomePaneShowing) {
     return;
   }
-  switch (this.title) { /*this refers to whatever object called showHint funct*/
+  switch (e.target.title) { /*target is the object the event e occured on*/
     case "B":
       var hintText = "Car";
       break;
@@ -53,7 +58,7 @@ function showHint() {
   contentPane.innerHTML = "<h3>" + hintText + "</h3>";
 }
 
-function hideHint() {
+function hideHint(e) {
   console.log("in hideHint()");
   if (welcomePaneShowing) {
     var contentPane = document.getElementById("content");
@@ -68,11 +73,11 @@ function hideHint() {
 /* Function sends request requiring welcome.html or B.html or C.html
 or CE.html page. Uses request object to get HTML fragment. */
 /* selectedTab determines name of the requested page. */
-function showTab() {
+function showTab(e) {
   console.log("inside showTab()");
   /* element na koji je kliknuto, pa njegov title, moze biti welcome, B, C, CE*/
   /* kliknuti elem moze biti iz navigation ili iz tabs*/
-  var selectedTab = this.title;
+  var selectedTab = e.target.title;
   console.log(selectedTab);
 
   if (selectedTab == "welcome") {
@@ -119,13 +124,13 @@ function showCategory() {
 }
 
 /* Shows active version of car, truck,..*/
-function buttonOver() {
+function buttonOver(e) {
   console.log("inside buttonOver()");
-  this.className = "active";
+  e.target.className = "active";
 }
 
 /* Removes active class  for car, truck,. ..images.*/
-function buttonOut() {
+function buttonOut(e) {
   console.log("inside buttonOut()");
-  this.className = "";
+  e.target.className = "";
 }
